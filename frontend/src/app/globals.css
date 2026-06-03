@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* Define our centralized production design tokens natively */
+@theme {
+  /* 1. Centralized Brand Primitives Color Palette */
+  --color-brand-dark: #020617;       /* Deep Slate-950 background canvas */
+  --color-brand-surface: #0f172a;    /* Slate-900 component container */
+  --color-brand-border: #1e293b;     /* Slate-800 divider lines */
+  --color-brand-primary: #2563eb;    /* Interactive Blue active states */
+  --color-brand-hover: #3b82f6;      /* Interactive Blue hover focus states */
+  --color-brand-text: #e0e7ff;       /* Light Indigo-100 for high contrast text */
+
+  --color-issue-low: #10b981;        /* Emerald-500 indicator for low priority */
+  --color-issue-medium: #f59e0b;     /* Amber-500 indicator for medium priority */
+  --color-issue-high: #ef4444;       /* Red-500 indicator for high priority */
+
+  /* 2. Centralized Layout Spacing and Sizing Token Architecture */
+  --spacing-sidebar: 260px;          /* Fixed structural width for navigation sidebar */
+  --spacing-board-col: 320px;        /* Standard layout width for Kanban column containers */
+  --spacing-layout-padding: 1.5rem;  /* Consistent application viewport outer gutter padding */
+  --spacing-card-gap: 0.75rem;       /* Vertical padding between task item cards */
+
+  /* 3. Centralized Border Radius Tokens */
+  --radius-issue-card: 0.75rem;      /* Fluid curved edges for individual task cards */
+  --radius-layout-pane: 1rem;        /* Curved container panels for dashboard elements */
+}
+
+body {
+background-color: var(--color-brand-dark, #020617);
+color: var(--color-brand-text, #e0e7ff);
+margin: 0;
+min-height: 100vh;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}

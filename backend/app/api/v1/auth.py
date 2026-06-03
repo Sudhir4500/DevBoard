@@ -7,6 +7,7 @@ from app.schemas.user import UserCreate, UserResponse, Token
 from app.services.user_service import UserService
 from app.models.user import User
 from app.schemas.response import SuccessResponse
+from app.core.config import settings
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
     
@@ -34,7 +35,7 @@ async def login(
         email=form_data.username, 
         password=form_data.password
     )
-    return SuccessResponse(data=Token(access_token=access_token, token_type="bearer"))
+    return SuccessResponse(data=Token(access_token=access_token, token_type="bearer", expires_in=settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60), message="Login successful")
 
 @router.get("/me", response_model=SuccessResponse[UserResponse])
 async def get_authenticated_user(current_user: User = Depends(get_current_user)):
